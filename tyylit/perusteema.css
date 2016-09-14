@@ -1,0 +1,274 @@
+
+@font-face {
+  font-family: "Luckiest Guy";
+  src: url('../fontit/LuckiestGuy.ttf') format('truetype');
+}
+
+.laddergame.game-arena {
+	position:relative;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.laddergame .ground {
+	position:absolute;
+	bottom:2vw;
+	left: 10vw;
+	width: 80vw;
+	min-height: 17vw;
+
+/*
+*
+****** Animate level movement
+*
+*/
+
+    -webkit-transition: bottom 1.5s ease-in-out;
+    -moz-transition: bottom 1.5s ease-in-out;
+    -o-transition: bottom 1.5s ease-in-out;
+    -ms-transition: bottom 1.5s ease-in-out;
+    transition: bottom 1.5s ease-in-out;
+
+}
+
+.laddergame .character {
+	position: absolute;
+	z-index: 999;
+	bottom: 11.7vw;
+	left: 15vw;
+	width: 5vw;
+	height: 5vw;
+	background-size: 5vw 5vw;
+
+/*
+*
+****** Animate character movement
+*
+*/
+
+    -webkit-transition: left .5s ease-in-out, bottom .5s ease-in-out;
+    -moz-transition: left .5s ease-in-out, bottom .5s ease-in-out;
+    -o-transition: left .5s ease-in-out, bottom .5s ease-in-out;
+    -ms-transition: left .5s ease-in-out bottom .5s ease-in-out;
+    transition: left .5s ease-in-out, bottom .5s ease-in-out;
+
+}
+
+.laddergame .jump {
+	animation: jump .5s ease-in-out;
+	-webkit-animation-name: jump;
+	-webkit-animation-duration: .5s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-in-out;
+
+}
+
+.laddergame .onLadder {
+	bottom: 14vw;
+}
+.laddergame .optionImage {
+	height: 10vw;
+	border-radius: .2em;
+	margin-bottom: -0.8vw !important;	
+}
+.laddergame .option {
+	position: absolute;
+	bottom: 8.7vw;
+	left: 20vw;
+	height: 12vw;
+	width: 8vw;
+	background-size: 8vw auto;
+
+}
+
+.laddergame .optionLabel {
+	min-width: 7vw;
+	max-height: 15vw;
+	max-width: 20vw;
+	min-height: 1vw;
+	display:inline-block;
+	margin: auto;
+	position: absolute;
+	bottom:6.8vw ;
+	left:50%;
+	transform: translateX(-50%);
+	word-wrap: break-word; 
+	white-space: normal;
+	cursor: hand;
+	padding-bottom: 0.8vw;
+
+}
+
+.laddergame .score {
+	position: absolute;
+	top: 8vh;
+	left: 1.2vw;
+	width: 12vw;
+	height: 3.5vw;
+	background-size: 8vw auto;
+}
+
+.laddergame .currentScore {
+	margin-left: 8vw;
+	line-height:4.8vw;
+
+text-shadow: 1px 1px 0 #9e9e9e,
+    -1px 1px 0 #9e9e9e,
+    1px -1px 0 #9e9e9e,
+    -1px -1px 0 #9e9e9e,
+    0px 1px 0 #9e9e9e,
+    0px -1px 0 #9e9e9e,
+    -1px 0px 0 #9e9e9e,
+    1px 0px 0 #9e9e9e,
+    2px 2px 0 #9e9e9e,
+    -2px 2px 0 #9e9e9e,
+    2px -2px 0 #9e9e9e,
+    -2px -2px 0 #9e9e9e,
+    0px 2px 0 #9e9e9e,
+    0px -2px 0 #9e9e9e,
+    -2px 0px 0 #9e9e9e,
+    2px 0px 0 #9e9e9e,
+    1px 2px 0 #9e9e9e,
+    -1px 2px 0 #9e9e9e,
+    1px -2px 0 #9e9e9e,
+    -1px -2px 0 #9e9e9e,
+    2px 1px 0 #9e9e9e,
+    -2px 1px 0 #9e9e9e,
+    2px -1px 0 #9e9e9e,
+    -2px -1px 0 #9e9e9e;
+
+
+}
+
+.laddergame  .progressbar {
+	position:absolute;
+	top: 2vh;
+	left: 50vw;
+	transform: translateX(-50%);
+	width: 50vw;
+	height: 4vh;
+	border-radius:1em 1em 2em 2em;
+	z-index: 999;
+}
+
+.laddergame  .progressbar span {
+	display:block;
+	content: "";
+	position: absolute;
+	top: 0.5vh;
+	left:0.8vh;
+	height: 2.5vh;
+	width: 0%;
+	max-width: 49.2vw;
+	transition: all 1s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+}
+
+.laddergame  .question {
+	display:inline-block;
+	position:absolute;
+	top: 20vh;
+	left: 50vw;
+	transform: translateX(-50%);
+	max-width: 60vw;
+	word-wrap: break-word;
+	z-index: 999;
+	transition: all 1s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+	animation: all 1s ease-in-out;
+	-webkit-animation: all 1s ease-in-out;
+	-moz-animation: all 1s ease-in-out;
+	-o-animation: all 1s ease-in-out;
+    -ms-animation: all 1s ease-in-out;
+
+}
+
+.laddergame .health {
+	float:left;
+	display: inline;
+	margin-right: 0.2vw;
+}
+
+
+
+.laddergame .healthUsed {
+	background: url(../kuvat/normal/health_used.svg) no-repeat;
+	background-size: 2vw auto !important;
+}
+
+.laddergame .blink {
+	animation-name: blink;
+	animation-duration: .3s;
+	animation-iteration-count: 3;
+	animation-timing-function: linear;
+	-webkit-animation-name: blink;
+	-webkit-animation-duration: .3s;
+	-webkit-animation-iteration-count: 3;
+	-webkit-animation-timing-function: linear;
+}
+
+.laddergame .characterBlink {
+	animation-name: blink;
+	animation-duration: .2s;
+	animation-iteration-count: 3;
+	animation-timing-function: linear;
+	-webkit-animation-name: blink;
+	-webkit-animation-duration: .2s;
+	-webkit-animation-iteration-count: 3;
+	-webkit-animation-timing-function: linear;
+
+	background: url(../kuvat/normal/dude_sad.svg) no-repeat !important;
+	background-size: 5vw auto !important;
+}
+
+.laddergame .lifes {
+	height: auto;
+	width: auto;
+	position: absolute;
+	right: 1.2vw;
+	top: 8vh;
+}
+
+
+@-webkit-keyframes jump {
+  50% 	{ bottom: 28vw; }
+  100%	{ bottom: 14vw; }
+}
+@-moz-keyframes jump {
+  50% 	{ bottom: 28vw; }
+  100%	{ bottom: 14vw; }
+}
+@-o-keyframes jump {
+  50% 	{ bottom: 28vw; }
+  100%	{ bottom: 14vw; }
+}
+@keyframes jump {
+  50% 	{ bottom: 28vw; }
+  100%	{ bottom: 14vw; }
+}
+
+@-webkit-keyframes blink {
+  0%   { opacity: 0.1; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes blink {
+  0%   { opacity: 0.1; }
+  100% { opacity: 1;}
+}
+@-o-keyframes blink {
+  0%   { opacity: 0.1; }
+  100% { opacity: 1; }
+}
+@keyframes blink {
+  0%   { opacity: 0.1; }
+  100% { opacity: 1;  }
+}
